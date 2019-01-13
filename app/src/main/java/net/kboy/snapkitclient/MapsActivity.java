@@ -31,6 +31,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,6 +43,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -61,6 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int color = Color.TRANSPARENT;
     private Double myLati;
     private Double myLongi;
+    private Timer time;
+    private double[][] coords;
 
 
     @Override
@@ -72,7 +77,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         lati = pho.child("lat");
         longi = pho.child("long");
         super.onCreate(savedInstanceState);
+        coords = new double[5][2];
+        time = new Timer();
+        time.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for(int x = 0; x < coords.length; x++)
+                    if(Math.abs(coords[x][0] - myLat) < .001 && Math.abs(coords[x][1] - myLang) < .001)
 
+
+            }
+        }, 0, 1000);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -156,19 +171,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-//
-
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -180,6 +182,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
         googleMap.setMyLocationEnabled(true);
+
+        final LatLng STC = new LatLng(43.470540, -80.543450);
+        coords[0] = [43.470540, -80.543450]
+        Marker stc = mMap.addMarker(new MarkerOptions()
+                .position(STC)
+                .title("Melbourne")
+                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
+        final LatLng Jacob = new LatLng(43.511610, -80.554050);
+        Marker acob = mMap.addMarker(new MarkerOptions()
+                .position(Jacob)
+                .title("St. Jacob's Farmer's Market")
+                .snippet("St. Jacob's Farmer's Market: A source for your locally grown "));
+//        final LatLng STC = new LatLng(43.470540, -80.543450);
+//        Marker stc = mMap.addMarker(new MarkerOptions()
+//                .position(STC)
+//                .title("Melbourne")
+//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
+//        final LatLng STC = new LatLng(43.470540, -80.543450);
+//        Marker stc = mMap.addMarker(new MarkerOptions()
+//                .position(STC)
+//                .title("Melbourne")
+//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
+//        final LatLng STC = new LatLng(43.470540, -80.543450);
+//        Marker stc = mMap.addMarker(new MarkerOptions()
+//                .position(STC)
+//                .title("Melbourne")
+//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
@@ -214,11 +243,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         createLocationRequest();
     }
+
     protected void createLocationRequest() {
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(1000);
         mLocationRequest.setFastestInterval(500);
-        Log.d("location request called", "so fucking bs");
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);
