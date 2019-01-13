@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.snapchat.kit.sdk.clientId"
             android:value="53b4555b-26ec-4688-8ede-67b7a985d916" />
@@ -40,6 +41,10 @@
                     android:scheme="blackchat" />
             </intent-filter>
         </activity>
+
+        <!--<meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />-->
 
         <activity android:name=".MainActivity">
             <intent-filter>
