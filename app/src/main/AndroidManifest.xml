@@ -58,6 +58,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+            android:name=".StickerActivity"
+            android:label="@string/title_activity_sticker"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".TrophyCaseActivity"></activity>
     </application>
 
 </manifest>
