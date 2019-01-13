@@ -40,15 +40,20 @@
                     android:scheme="blackchat" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="anodroid.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity android:name=".LoginConfirmActivity" />
         <activity android:name=".BitmojiActivity" />
+
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
@@ -58,6 +63,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
             android:name=".StickerActivity"
             android:label="@string/title_activity_sticker"
             android:theme="@style/AppTheme.NoActionBar">

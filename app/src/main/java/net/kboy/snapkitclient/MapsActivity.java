@@ -49,7 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double myLang;
     private Button items;
     private Button receive;
-    private LinearLayout lin;
+    //private LinearLayout lin;
     private DatabaseReference mDatabase;
     private DatabaseReference lati;
     private DatabaseReference longi;
@@ -78,8 +78,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //        items = (Button)findViewById(R.id.items);
 //        receive = (Button)findViewById(R.id.Receive);
-        lin = (LinearLayout)findViewById(R.id.lin);
-        final Drawable background = lin.getBackground();
+        //lin = (LinearLayout)findViewById(R.id.lin);
+        //final Drawable background = lin.getBackground();
 
 
         receive.setOnClickListener(new View.OnClickListener() {
