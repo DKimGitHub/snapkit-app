@@ -51,6 +51,7 @@
             android:name=".StickerActivity"
             android:label="@string/title_activity_sticker"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".TrophyCaseActivity"></activity>
     </application>
 
 </manifest>

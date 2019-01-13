@@ -30,7 +30,7 @@ public class StickerActivity extends AppCompatActivity {
         });
         SnapCreativeKitApi snapCreativeKitApi = SnapCreative.getApi(this);
         SnapMediaFactory snapMediaFactory = SnapCreative.getMediaFactory(this);
-        
+
     }
 
 }
