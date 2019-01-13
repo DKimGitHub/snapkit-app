@@ -58,8 +58,6 @@ public class StickerActivity extends AppCompatActivity {
 
         snapSticker.setPosX(0.5f);
         snapSticker.setPosY(0.5f);
-
-        photoFile.
     }
 
 }
