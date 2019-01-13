@@ -83,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void run() {
                 for(int x = 0; x < coords.length; x++)
-                    if(Math.abs(coords[x][0] - myLat) < .001 && Math.abs(coords[x][1] - myLang) < .001)
+                    if(Math.abs(coords[x][0] - myLat) < .001 && Math.abs(coords[x][1] - myLang) < .001);
 
 
             }
@@ -184,7 +184,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googleMap.setMyLocationEnabled(true);
 
         final LatLng STC = new LatLng(43.470540, -80.543450);
-        coords[0] = [43.470540, -80.543450]
+        coords[0][0] = 43.470540;
+        coords[0][1] = -80.543450;
         Marker stc = mMap.addMarker(new MarkerOptions()
                 .position(STC)
                 .title("Melbourne")
@@ -248,6 +249,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(1000);
         mLocationRequest.setFastestInterval(500);
+        Log.d("location request called", "wprks");
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);
