@@ -39,20 +39,13 @@ public class StickerActivity extends AppCompatActivity {
         SnapCreativeKitApi snapCreativeKitApi = SnapCreative.getApi(this);
         SnapMediaFactory snapMediaFactory = SnapCreative.getMediaFactory(this);
         SnapSticker snapSticker = null;
-        File stickerFile = new File("/Users/kevincho/SnapKitSample-Android/app/src/main/res/drawable-v24/icon5.png");
-        SnapPhotoFile photoFile;
+        File stickerFile = new File("/SnapKitSample-Android/app/src/main/res/drawable-v24/icon5.png");
         SnapLiveCameraContent snapLiveCameraContent = new SnapLiveCameraContent();
 
         try{
             snapSticker = snapMediaFactory.getSnapStickerFromFile(stickerFile);
-
+s
         }catch (SnapStickerSizeException e){
-            e.printStackTrace();
-            return;
-        }
-        try{
-            photoFile = snapMediaFactory.getSnapPhotoFromFile(stickerFile);
-        }catch(SnapMediaSizeException e){
             e.printStackTrace();
             return;
         }
