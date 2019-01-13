@@ -9,6 +9,8 @@ public class TrophyCaseActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_trophy_case);
+
+            getActionBar().setTitle("Your Trophy Showcase");
         }
 
     public void getEarnedStickers(){

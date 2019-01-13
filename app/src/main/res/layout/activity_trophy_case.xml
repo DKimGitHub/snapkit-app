@@ -1,15 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*"
+    android:background="#ffffff"
     tools:context=".TrophyCaseActivity">
 
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@android:color/holo_blue_light"
+        android:textColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#00aaaaaa"
+
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/toolbarText"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
+                android:text="Your Trophy Showcase"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:textColorHighlight="@android:color/primary_text_dark"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light"
+                android:text="Exit"
+                android:textColor="#fff"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <TextView
+        android:id="@+id/collection1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="Waterloo Collection"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp" />
+
+
+    <TableRow
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+       >
+
+        <ImageView
+            android:id="@+id/badge1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/placeholder_trophy"/>
+
+        <ImageView
+            android:id="@+id/b1iv1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b1iv2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/physical_activity_centre"/>
+
+        <ImageView
+            android:id="@+id/b1iv3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/waterloo_park"/>
+        <ImageView
+            android:id="@+id/b1iv4"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/google_campus"/>
+        <ImageView
+            android:id="@+id/b1iv5"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+
+            android:src="@drawable/farmers_market"/>
+    </TableRow>
+
+    <TextView
+        android:id="@+id/collection2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="London Collection"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/badge_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/placeholder_trophy"/>
+
+        <ImageView
+            android:id="@+id/b2_iv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b2_iv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b2_iv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b2_iv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b2_iv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+    </TableRow>
+
+    <TextView
+        android:id="@+id/collection3"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="Virginia Collection"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/badge_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/placeholder_trophy"/>
+
+        <ImageView
+            android:id="@+id/b3_iv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b3_iv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b3_iv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b3_iv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b3_iv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+    </TableRow>
+
+    <TextView
+        android:id="@+id/collection4"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="Toronto Collection"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp">
+
+        <ImageView
+            android:id="@+id/badge_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/placeholder_trophy"/>
+
+        <ImageView
+            android:id="@+id/b4_iv1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b4_iv2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+
+        <ImageView
+            android:id="@+id/b4_iv3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b4_iv4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+        <ImageView
+            android:id="@+id/b4_iv5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/question_icon"/>
+    </TableRow>
+
+    <!--
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon5" />
+        android:layout_width="103dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/question_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="45dp" />
+    -->
 
-</android.support.constraint.ConstraintLayout>
+</TableLayout>
