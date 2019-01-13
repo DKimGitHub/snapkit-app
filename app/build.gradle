@@ -19,7 +19,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //
-        //multiDexEnabled true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -59,7 +59,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     //
-    //implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
 apply plugin: 'com.google.gms.google-services'
