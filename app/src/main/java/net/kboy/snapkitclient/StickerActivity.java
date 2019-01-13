@@ -14,6 +14,8 @@ import com.snapchat.kit.sdk.creative.exceptions.SnapStickerSizeException;
 import com.snapchat.kit.sdk.creative.media.SnapMediaFactory;
 import com.snapchat.kit.sdk.creative.media.SnapPhotoFile;
 import com.snapchat.kit.sdk.creative.media.SnapSticker;
+import com.snapchat.kit.sdk.creative.models.SnapContent;
+import com.snapchat.kit.sdk.creative.models.SnapLiveCameraContent;
 
 import java.io.File;
 
@@ -39,6 +41,8 @@ public class StickerActivity extends AppCompatActivity {
         SnapSticker snapSticker = null;
         File stickerFile = new File("/Users/kevincho/SnapKitSample-Android/app/src/main/res/drawable-v24/icon5.png");
         SnapPhotoFile photoFile;
+        SnapLiveCameraContent snapLiveCameraContent = new SnapLiveCameraContent();
+
         try{
             snapSticker = snapMediaFactory.getSnapStickerFromFile(stickerFile);
 
@@ -58,6 +62,8 @@ public class StickerActivity extends AppCompatActivity {
 
         snapSticker.setPosX(0.5f);
         snapSticker.setPosY(0.5f);
+        snapLiveCameraContent.setSnapSticker(snapSticker);
+        snapCreativeKitApi.send(snapLiveCameraContent);
     }
 
 }
