@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.snapchat.kit.sdk.Bitmoji
 
 class LoginConfirmActivity: AppCompatActivity() {
 
@@ -26,7 +27,7 @@ class LoginConfirmActivity: AppCompatActivity() {
 
         val button: Button = findViewById(R.id.button)
         button.setOnClickListener {
-            val intent = Intent(this, MapsActivity::class.java)
+            val intent = Intent(this, BitmojiActivity::class.java)
             startActivity(intent)
         }
     }
