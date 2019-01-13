@@ -8,11 +8,8 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-<<<<<<< HEAD
-=======
     //original: 28.0.3
     //23.0.1
->>>>>>> 95f04a33329c23733fb7441cc395710ff61e615c
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "net.kboy.snapkitclient"
