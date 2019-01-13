@@ -1,6 +1,7 @@
 package net.kboy.snapkitclient;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -42,6 +43,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.snapchat.kit.sdk.SnapKitActivity;
 
 import java.util.Map;
 import java.util.Timer;
@@ -57,6 +59,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //    private Button receive;
 //    private LinearLayout lin;
     private Button items;
+    private Button send;
     private Button receive;
     //private LinearLayout lin;
     private DatabaseReference mDatabase;
@@ -80,15 +83,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         coords = new double[5][2];
         time = new Timer();
-        time.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                for(int x = 0; x < coords.length; x++)
-                    if(Math.abs(coords[x][0] - myLat) < .001 && Math.abs(coords[x][1] - myLang) < .001);
-
-
-            }
-        }, 0, 1000);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -96,6 +90,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        send = (Button)findViewById(R.id.send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MapsActivity.this, StickerActivity.class);
+                startActivity(i);
+            }
+        });
 //        items = (Button)findViewById(R.id.items);
 //        receive = (Button)findViewById(R.id.Receive);
 //        lin = (LinearLayout)findViewById(R.id.lin);
@@ -126,6 +128,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //
 //            }
 //        });
+
+
+        time.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                if(Math.abs(coords[0][0] - myLat) < .001 && Math.abs(coords[0][1] - myLang) < .001) {
+                    Intent i = new Intent(MapsActivity.this, SnapKitActivity.class);
+                    startActivity(i);
+                }
+            }
+        }, 0, 1000);
         pho.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -200,7 +214,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         coords[0][1] = -80.543450;
         Marker stc = mMap.addMarker(new MarkerOptions()
                 .position(STC)
-                .title("Melbourne")
+                .title("The STC")
                 .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
         final LatLng Jacob = new LatLng(43.511610, -80.554050);
         coords[0][0] = 43.511610;
