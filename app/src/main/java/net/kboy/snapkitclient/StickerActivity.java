@@ -65,7 +65,6 @@ public class StickerActivity extends AppCompatActivity {
         snapLiveCameraContent.setSnapSticker(snapSticker);
         snapCreativeKitApi.send(snapLiveCameraContent);
 
-
     }
 
 }
