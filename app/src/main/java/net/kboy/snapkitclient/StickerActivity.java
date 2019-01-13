@@ -9,8 +9,10 @@ import android.view.View;
 
 import com.snapchat.kit.sdk.SnapCreative;
 import com.snapchat.kit.sdk.creative.api.SnapCreativeKitApi;
+import com.snapchat.kit.sdk.creative.exceptions.SnapMediaSizeException;
 import com.snapchat.kit.sdk.creative.exceptions.SnapStickerSizeException;
 import com.snapchat.kit.sdk.creative.media.SnapMediaFactory;
+import com.snapchat.kit.sdk.creative.media.SnapPhotoFile;
 import com.snapchat.kit.sdk.creative.media.SnapSticker;
 
 import java.io.File;
@@ -36,14 +38,20 @@ public class StickerActivity extends AppCompatActivity {
         SnapMediaFactory snapMediaFactory = SnapCreative.getMediaFactory(this);
         SnapSticker snapSticker = null;
         File stickerFile = new File("/Users/kevincho/SnapKitSample-Android/app/src/main/res/drawable-v24/icon5.png");
-
+        SnapPhotoFile photoFile;
         try{
             snapSticker = snapMediaFactory.getSnapStickerFromFile(stickerFile);
+
         }catch (SnapStickerSizeException e){
             e.printStackTrace();
             return;
         }
-
+        try{
+            photoFile = snapMediaFactory.getSnapPhotoFromFile(stickerFile);
+        }catch(SnapMediaSizeException e){
+            e.printStackTrace();
+            return;
+        }
 
         snapSticker.setWidth(300);
         snapSticker.setHeight(300);
@@ -51,7 +59,7 @@ public class StickerActivity extends AppCompatActivity {
         snapSticker.setPosX(0.5f);
         snapSticker.setPosY(0.5f);
 
-       // snapCreativeKitApi.send();
+        photoFile.
     }
 
 }
