@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), LoginStateController.OnLoginStateChang
         setContentView(R.layout.activity_main)
 
         val label: TextView = findViewById(R.id.textView)
-        label.text = "Pemoji"
+        label.text = "Snapchat Sucks"
 
         SnapLogin.getLoginStateController(this).addOnLoginStateChangedListener(this)
 

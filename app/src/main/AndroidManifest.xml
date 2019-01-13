@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="net.kboy.snapkitclient">
+    xmlns:tools="http://schemas.android.com/tools" package="net.kboy.snapkitclient">
 
     <uses-sdk tools:overrideLibrary="com.snapchat.kit.sdk.login" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +14,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.snapchat.kit.sdk.clientId"
-            android:value="<your app’s client id>" />
+            android:value="53b4555b-26ec-4688-8ede-67b7a985d916" />
         <meta-data
             android:name="com.snapchat.kit.sdk.redirectUrl"
             android:value="blackchat://login" />
