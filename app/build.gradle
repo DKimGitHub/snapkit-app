@@ -20,6 +20,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //
         multiDexEnabled true
+defaultConfig.vectorDrawables.useSupportLibrary = true
+
     }
     buildTypes {
         release {
@@ -63,3 +65,4 @@ dependencies {
 
 }
 apply plugin: 'com.google.gms.google-services'
+

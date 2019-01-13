@@ -26,6 +26,9 @@
         <meta-data
             android:name="com.snapchat.kit.sdk.scopes"
             android:resource="@array/snap_connect_scopes" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDr4oYEzGCiK4j4xshm20Q_4bz22QS6NVc" />
 
         <activity
             android:name="com.snapchat.kit.sdk.SnapKitActivity"
@@ -50,7 +53,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="anodroid.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -68,11 +71,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".StickerActivity"
             android:label="@string/title_activity_sticker"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".TrophyCaseActivity"></activity>
     </application>
 

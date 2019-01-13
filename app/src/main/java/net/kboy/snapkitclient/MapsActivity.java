@@ -13,7 +13,9 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +31,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +43,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -47,6 +52,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient mFusedLocationClient;
     private double myLat;
     private double myLang;
+    //    private Button items;
+//    private Button receive;
+//    private LinearLayout lin;
     private Button items;
     private Button receive;
     //private LinearLayout lin;
@@ -56,7 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private int color = Color.TRANSPARENT;
     private Double myLati;
     private Double myLongi;
-
+    private Timer time;
+    private double[][] coords;
 
 
     @Override
@@ -68,7 +77,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         lati = pho.child("lat");
         longi = pho.child("long");
         super.onCreate(savedInstanceState);
+        coords = new double[5][2];
+        time = new Timer();
+        time.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for(int x = 0; x < coords.length; x++)
+                    if(Math.abs(coords[x][0] - myLat) < .001 && Math.abs(coords[x][1] - myLang) < .001);
 
+
+            }
+        }, 0, 1000);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -78,16 +97,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //        items = (Button)findViewById(R.id.items);
 //        receive = (Button)findViewById(R.id.Receive);
+//        lin = (LinearLayout)findViewById(R.id.lin);
+//        final Drawable background = lin.getBackground();
         //lin = (LinearLayout)findViewById(R.id.lin);
         //final Drawable background = lin.getBackground();
 
 
-        receive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mMap.addMarker(new MarkerOptions().position(new LatLng(myLat + .00034, myLang + .0000943)).title("Friend1"));
-            }
-        });
+//        receive.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mMap.addMarker(new MarkerOptions().position(new LatLng(myLat + .00034, myLang + .0000943)).title("Friend1"));
+//            }
+//        });
 //        items.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -110,7 +131,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // whenever data at this location is updated.
                 Map<String, Object> ne = (Map<String, Object>) dataSnapshot.getValue();
                 Log.d("hi", "Value is: " + ne.get("lat"));
-                mMap.addMarker(new MarkerOptions().position(new LatLng((Double)ne.get("lat"), (Double)ne.get("long"))).title("Frank Tian"));
+//                mMap.addMarker(new MarkerOptions().position(new LatLng((Double) ne.get("lat"), (Double) ne.get("long"))).title("Frank Tian"));
             }
 
             @Override
@@ -137,7 +158,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -151,8 +171,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -163,6 +181,43 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+        googleMap.setMyLocationEnabled(true);
+
+        final LatLng STC = new LatLng(43.470540, -80.543450);
+        coords[0][0] = 43.470540;
+        coords[0][1] = -80.543450;
+        Marker stc = mMap.addMarker(new MarkerOptions()
+                .position(STC)
+                .title("Melbourne")
+                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
+        final LatLng Jacob = new LatLng(43.511610, -80.554050);
+        coords[0][0] = 43.511610;
+        coords[0][1] = -80.554050;
+        Marker acob = mMap.addMarker(new MarkerOptions()
+                .position(Jacob)
+                .title("St. Jacob's Farmer's Market")
+                .snippet("St. Jacob's Farmer's Market: A source for your locally grown "));
+        final LatLng Googoo = new LatLng(43.515520, -80.512550);
+        coords[0][0] = 43.515520;
+        coords[0][1] = -80.512550;
+        Marker gurgle = mMap.addMarker(new MarkerOptions()
+                .position(Googoo)
+                .title("Google")
+                .snippet("Google Campus In Waterloo: A collection of people who are looking at your search history and laughing"));
+        final LatLng Waterpark = new LatLng(43.458260, -80.519620);
+        coords[0][0] = 43.458260;
+        coords[0][1] = -80.519620;
+        Marker Theloo = mMap.addMarker(new MarkerOptions()
+                .position(Waterpark)
+                .title("Waterloo Park")
+                .snippet("Waterloo Park: Where old ladies go to feed birds and stuff. Great place to meet friendly doggos."));
+        final LatLng Ice = new LatLng(43.472260, -80.555700);
+        coords[0][0] = 43.472260;
+        coords[0][1] = -80.555700;
+        Marker Field = mMap.addMarker(new MarkerOptions()
+                .position(Ice)
+                .title("Columbia Icefield")
+                .snippet("Columbia Icefield Athletic Center: A fitness center named after a placec that isn't nearby, and categories of sports that aren't played inside"));
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
@@ -197,11 +252,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         createLocationRequest();
     }
+
     protected void createLocationRequest() {
         LocationRequest mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(1000);
         mLocationRequest.setFastestInterval(500);
-        Log.d("location request called", "so fucking bs");
+        Log.d("location request called", "wprks");
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest);

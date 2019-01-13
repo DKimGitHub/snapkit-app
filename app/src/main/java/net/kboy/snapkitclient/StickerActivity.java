@@ -9,7 +9,11 @@ import android.view.View;
 
 import com.snapchat.kit.sdk.SnapCreative;
 import com.snapchat.kit.sdk.creative.api.SnapCreativeKitApi;
+import com.snapchat.kit.sdk.creative.exceptions.SnapStickerSizeException;
 import com.snapchat.kit.sdk.creative.media.SnapMediaFactory;
+import com.snapchat.kit.sdk.creative.media.SnapSticker;
+
+import java.io.File;
 
 public class StickerActivity extends AppCompatActivity {
 
@@ -30,7 +34,24 @@ public class StickerActivity extends AppCompatActivity {
         });
         SnapCreativeKitApi snapCreativeKitApi = SnapCreative.getApi(this);
         SnapMediaFactory snapMediaFactory = SnapCreative.getMediaFactory(this);
+        SnapSticker snapSticker = null;
+        File stickerFile = new File("/Users/kevincho/SnapKitSample-Android/app/src/main/res/drawable-v24/icon5.png");
 
+        try{
+            snapSticker = snapMediaFactory.getSnapStickerFromFile(stickerFile);
+        }catch (SnapStickerSizeException e){
+            e.printStackTrace();
+            return;
+        }
+
+
+        snapSticker.setWidth(300);
+        snapSticker.setHeight(300);
+
+        snapSticker.setPosX(0.5f);
+        snapSticker.setPosY(0.5f);
+
+       // snapCreativeKitApi.send();
     }
 
 }
