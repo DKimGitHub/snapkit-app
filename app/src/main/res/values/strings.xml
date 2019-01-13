@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SnapKitClient</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button1">Items</string>
+    <string name="button2">Receive</string>
+    <string name="title_activity_items">ItemsActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
 </resources>

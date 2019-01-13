@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "105975228097",
+    "firebase_url": "https://sticker-collector-thing.firebaseio.com",
+    "project_id": "sticker-collector-thing",
+    "storage_bucket": "sticker-collector-thing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105975228097:android:bf0386b08961794d",
+        "android_client_info": {
+          "package_name": "net.kboy.snapkitclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105975228097-mbqk4inj02h25u8nqdlfdn4edl4tkavg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgqB8WbM35OopE6kxetTP2MvyOahtkX2Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
