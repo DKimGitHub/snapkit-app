@@ -6,25 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="net.kboy.snapkitclient.MapsActivity" >
-    <!--<LinearLayout-->
-        <!--android:id="@+id/lin"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:background= "#ff0000">-->
-        <!--<Button-->
-            <!--android:id="@+id/items"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:text="@string/button1"-->
-            <!--android:layout_marginTop="5dp" />-->
-        <!--<Button-->
-            <!--android:id="@+id/Receive"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:text="@string/button2"-->
-            <!--android:layout_marginTop="5dp" />-->
-    <!--</LinearLayout>-->
+    <LinearLayout
+        android:id="@+id/lin"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background= "#ff0000">
+        <Button
+            android:id="@+id/items"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/button1"
+            android:layout_marginTop="5dp" />
+        <Button
+            android:id="@+id/Receive"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/button2"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
 
 </fragment>

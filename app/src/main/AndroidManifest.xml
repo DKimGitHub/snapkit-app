@@ -25,6 +25,9 @@
         <meta-data
             android:name="com.snapchat.kit.sdk.scopes"
             android:resource="@array/snap_connect_scopes" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name="com.snapchat.kit.sdk.SnapKitActivity"

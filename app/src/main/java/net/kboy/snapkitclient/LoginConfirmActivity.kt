@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.snapchat.kit.sdk.Bitmoji
 
 class LoginConfirmActivity: AppCompatActivity() {
 
