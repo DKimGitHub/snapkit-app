@@ -47,16 +47,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient mFusedLocationClient;
     private double myLat;
     private double myLang;
-    private Button items;
-    private Button receive;
-    private LinearLayout lin;
+    //    private Button items;
+//    private Button receive;
+//    private LinearLayout lin;
     private DatabaseReference mDatabase;
     private DatabaseReference lati;
     private DatabaseReference longi;
     private int color = Color.TRANSPARENT;
     private Double myLati;
     private Double myLongi;
-
 
 
     @Override
@@ -78,16 +77,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //        items = (Button)findViewById(R.id.items);
 //        receive = (Button)findViewById(R.id.Receive);
-        lin = (LinearLayout)findViewById(R.id.lin);
-        final Drawable background = lin.getBackground();
+//        lin = (LinearLayout)findViewById(R.id.lin);
+//        final Drawable background = lin.getBackground();
 
 
-        receive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mMap.addMarker(new MarkerOptions().position(new LatLng(myLat + .00034, myLang + .0000943)).title("Friend1"));
-            }
-        });
+//        receive.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mMap.addMarker(new MarkerOptions().position(new LatLng(myLat + .00034, myLang + .0000943)).title("Friend1"));
+//            }
+//        });
 //        items.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -110,7 +109,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // whenever data at this location is updated.
                 Map<String, Object> ne = (Map<String, Object>) dataSnapshot.getValue();
                 Log.d("hi", "Value is: " + ne.get("lat"));
-                mMap.addMarker(new MarkerOptions().position(new LatLng((Double)ne.get("lat"), (Double)ne.get("long"))).title("Frank Tian"));
+//                mMap.addMarker(new MarkerOptions().position(new LatLng((Double) ne.get("lat"), (Double) ne.get("long"))).title("Frank Tian"));
             }
 
             @Override
@@ -137,7 +136,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -151,6 +149,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        googleMap.setMyLocationEnabled(true);
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
