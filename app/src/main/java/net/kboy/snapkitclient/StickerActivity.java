@@ -63,7 +63,7 @@ public class StickerActivity extends AppCompatActivity {
         snapSticker.setPosX(0.5f);
         snapSticker.setPosY(0.5f);
         snapLiveCameraContent.setSnapSticker(snapSticker);
-        snapCreativeKitApi.send(snapLiveCameraContent);s
+        snapCreativeKitApi.send(snapLiveCameraContent);
 
 
     }
