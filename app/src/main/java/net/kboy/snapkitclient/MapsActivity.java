@@ -202,7 +202,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         coords[0][1] = -80.543450;
         Marker stc = mMap.addMarker(new MarkerOptions()
                 .position(STC)
-                .title("Melbourne")
+                .title("The STC")
                 .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
         final LatLng Jacob = new LatLng(43.511610, -80.554050);
         coords[0][0] = 43.511610;
