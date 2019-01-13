@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SnapKitClient</string>
+    <string name="app_name">StickerBook</string>
     <string name="title_activity_maps">Map</string>
     <string name="button1">Items</string>
     <string name="button2">Receive</string>

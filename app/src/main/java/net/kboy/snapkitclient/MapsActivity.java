@@ -131,13 +131,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         time.schedule(new TimerTask() {
             @Override
             public void run() {
-
-                if(Math.abs(coords[0][0] - myLat) < .001 && Math.abs(coords[0][1] - myLang) < .001) {
-                    Intent i = new Intent(MapsActivity.this, SnapKitActivity.class);
+                Log.d("", ""+ Math.abs(coords[0][0] - myLat));
+                Log.d("", ""+ Math.abs(coords[0][1] - myLang));
+                if(Math.abs(coords[0][0] - myLat) < .1 && Math.abs(coords[0][1] - myLang) < .1) {
+                    Log.d("", "hello");
+                    Intent i = new Intent(MapsActivity.this, StickerActivity.class);
                     startActivity(i);
                 }
             }
-        }, 0, 1000);
+        }, 3000, 1000);
         pho.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

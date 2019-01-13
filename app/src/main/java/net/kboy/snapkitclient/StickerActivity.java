@@ -44,7 +44,6 @@ public class StickerActivity extends AppCompatActivity {
 
         try{
             snapSticker = snapMediaFactory.getSnapStickerFromFile(stickerFile);
-s
         }catch (SnapStickerSizeException e){
             e.printStackTrace();
             return;
