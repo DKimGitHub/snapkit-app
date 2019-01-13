@@ -191,25 +191,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .title("Melbourne")
                 .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
         final LatLng Jacob = new LatLng(43.511610, -80.554050);
+        coords[0][0] = 43.511610;
+        coords[0][1] = -80.554050;
         Marker acob = mMap.addMarker(new MarkerOptions()
                 .position(Jacob)
                 .title("St. Jacob's Farmer's Market")
                 .snippet("St. Jacob's Farmer's Market: A source for your locally grown "));
-//        final LatLng STC = new LatLng(43.470540, -80.543450);
-//        Marker stc = mMap.addMarker(new MarkerOptions()
-//                .position(STC)
-//                .title("Melbourne")
-//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
-//        final LatLng STC = new LatLng(43.470540, -80.543450);
-//        Marker stc = mMap.addMarker(new MarkerOptions()
-//                .position(STC)
-//                .title("Melbourne")
-//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
-//        final LatLng STC = new LatLng(43.470540, -80.543450);
-//        Marker stc = mMap.addMarker(new MarkerOptions()
-//                .position(STC)
-//                .title("Melbourne")
-//                .snippet("The Science Teaching Complex: currently home of 500+ sleep deprived students"));
+        final LatLng Googoo = new LatLng(43.515520, -80.512550);
+        coords[0][0] = 43.515520;
+        coords[0][1] = -80.512550;
+        Marker gurgle = mMap.addMarker(new MarkerOptions()
+                .position(Googoo)
+                .title("Google")
+                .snippet("Google Campus In Waterloo: A collection of people who are looking at your search history and laughing"));
+        final LatLng Waterpark = new LatLng(43.458260, -80.519620);
+        coords[0][0] = 43.458260;
+        coords[0][1] = -80.519620;
+        Marker Theloo = mMap.addMarker(new MarkerOptions()
+                .position(Waterpark)
+                .title("Waterloo Park")
+                .snippet("Waterloo Park: Where old ladies go to feed birds and stuff. Great place to meet friendly doggos."));
+        final LatLng Ice = new LatLng(43.472260, -80.555700);
+        coords[0][0] = 43.472260;
+        coords[0][1] = -80.555700;
+        Marker Field = mMap.addMarker(new MarkerOptions()
+                .position(Ice)
+                .title("Columbia Icefield")
+                .snippet("Columbia Icefield Athletic Center: A fitness center named after a placec that isn't nearby, and categories of sports that aren't played inside"));
         mFusedLocationClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
                     @Override
