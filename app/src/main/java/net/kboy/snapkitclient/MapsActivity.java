@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -46,7 +47,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback  {
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
@@ -103,6 +104,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //final Drawable background = lin.getBackground();
 
 
+
 //        receive.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -157,7 +159,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        });
     }
 
-
+    public void FlexTrophies(View v) {
+        switch(v.getId()) {
+            case R.id.ActivityMapButton:
+                Intent myIntent = new Intent();
+                myIntent.setClassName(this, "TrophyCaseActivity.java");
+                // for ex: your package name can be "com.example"
+                // your activity name will be "com.example.Contact_Developer"
+                startActivity(myIntent);
+                break;
+        }
+    }
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -273,4 +285,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
+
+
+// some more code
+
+
 }
+
+
+

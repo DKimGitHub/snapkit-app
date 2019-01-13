@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     tools:context="net.kboy.snapkitclient.MapsActivity" >
 
-    <Button android:layout_width="wrap_content"
+    <Button android:layout_width="150dp"
+        android:id="@+id/ActivityMapButton"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:text="Sicker Collection"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:paddingRight="10dp" />
+        android:text="Trophy Collection"
+        android:layout_gravity="center|bottom"
+        android:layout_weight="0"
+        android:onClick="FlexTrophies"
+        />
     <!--<LinearLayout-->
         <!--android:id="@+id/lin"-->
         <!--android:orientation="horizontal"-->
